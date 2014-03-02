@@ -20,6 +20,12 @@
 @property (strong, nonatomic) UILabel *mealPlanLabel;
 @property (strong, nonatomic) UILabel *optionLabel;
 
+@property (strong, nonatomic) UILabel *tigerBucksBalanceLabel;
+@property (strong, nonatomic) UILabel *foodDebitBalanceLabel;
+@property (strong, nonatomic) UILabel *mealPlanValueLabel;
+@property (strong, nonatomic) UILabel *mealPlanBalanceLabel;
+@property (strong, nonatomic) UILabel *optionBalanceLabel;
+
 @end
 
 @implementation AccountBalancesViewController
@@ -33,11 +39,17 @@
         self.titleLabel = [AccountBalancesViewController titleRowWithText:@"Current Dining Account Balances"];
         
         // Initialize balance row labels
-        self.tigerBucksLabel = [AccountBalancesViewController balanceRowWithText:@"Tiger Bucks Balance"];
-        self.foodDebitLabel = [AccountBalancesViewController balanceRowWithText:@"Food Debit Balance"];
-        self.mealPlanNameLabel = [AccountBalancesViewController balanceRowWithText:@"Meal Plan"];
-        self.mealPlanLabel = [AccountBalancesViewController balanceRowWithText:@"Meal Plan Balance"];
-        self.optionLabel = [AccountBalancesViewController balanceRowWithText:@"Option Balance"];
+        self.tigerBucksLabel = [AccountBalancesViewController balanceRowNameWithText:@"Tiger Bucks Balance"];
+        self.foodDebitLabel = [AccountBalancesViewController balanceRowNameWithText:@"Food Debit Balance"];
+        self.mealPlanNameLabel = [AccountBalancesViewController balanceRowNameWithText:@"Meal Plan"];
+        self.mealPlanLabel = [AccountBalancesViewController balanceRowNameWithText:@"Meal Plan Balance"];
+        self.optionLabel = [AccountBalancesViewController balanceRowNameWithText:@"Option Balance"];
+        
+        self.tigerBucksBalanceLabel = [AccountBalancesViewController balanceRowValueWithText:@"1.00000000"];
+        self.foodDebitBalanceLabel = [AccountBalancesViewController balanceRowValueWithText:@"1.00000000"];
+        self.mealPlanValueLabel = [AccountBalancesViewController balanceRowValueWithText:@"1.00000000"];
+        self.mealPlanBalanceLabel = [AccountBalancesViewController balanceRowValueWithText:@"1.00000000"];
+        self.optionBalanceLabel = [AccountBalancesViewController balanceRowValueWithText:@"1.00000000"];
     }
     
     return self;
@@ -46,9 +58,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
+    
     [self.view setBackgroundColor:[UIColor whiteColor]];
-
+    
     [self positionLabels];
 }
 
@@ -65,20 +77,54 @@
 {
     [self positionTitleRowLabel:self.titleLabel];
     
-    [self positionBalanceRowLabel:self.tigerBucksLabel
-                       AfterLabel:self.titleLabel];
+    // Position name labels
+    [self positionBalanceRowNameLabel:self.tigerBucksLabel
+                           AfterLabel:self.titleLabel];
     
-    [self positionBalanceRowLabel:self.foodDebitLabel
-                       AfterLabel:self.tigerBucksLabel];
+    [self positionBalanceRowNameLabel:self.foodDebitLabel
+                           AfterLabel:self.tigerBucksLabel];
     
-    [self positionBalanceRowLabel:self.mealPlanNameLabel
-                       AfterLabel:self.foodDebitLabel];
+    [self positionBalanceRowNameLabel:self.mealPlanNameLabel
+                           AfterLabel:self.foodDebitLabel];
     
-    [self positionBalanceRowLabel:self.mealPlanLabel
-                       AfterLabel:self.mealPlanNameLabel];
+    [self positionBalanceRowNameLabel:self.mealPlanLabel
+                           AfterLabel:self.mealPlanNameLabel];
     
-    [self positionBalanceRowLabel:self.optionLabel
-                       AfterLabel:self.mealPlanLabel];
+    [self positionBalanceRowNameLabel:self.optionLabel
+                           AfterLabel:self.mealPlanLabel];
+    
+    // Position value labels
+    [self positionBalanceRowValueLabel:self.tigerBucksBalanceLabel
+                           NextToLabel:self.tigerBucksLabel];
+    
+    [self positionBalanceRowValueLabel:self.foodDebitBalanceLabel
+                           NextToLabel:self.foodDebitLabel];
+    
+    [self positionBalanceRowValueLabel:self.mealPlanValueLabel
+                           NextToLabel:self.mealPlanNameLabel];
+    
+    [self positionBalanceRowValueLabel:self.mealPlanBalanceLabel
+                           NextToLabel:self.mealPlanLabel];
+    
+    [self positionBalanceRowValueLabel:self.optionBalanceLabel
+                           NextToLabel:self.optionLabel];
+    
+    // Draw lines between name and value labels
+    [self drawLineBetweenLeftLabel:self.tigerBucksLabel
+                     AndRightLabel:self.tigerBucksBalanceLabel];
+    
+    [self drawLineBetweenLeftLabel:self.foodDebitLabel
+                     AndRightLabel:self.foodDebitBalanceLabel];
+    
+    [self drawLineBetweenLeftLabel:self.mealPlanNameLabel
+                     AndRightLabel:self.mealPlanValueLabel];
+    
+    [self drawLineBetweenLeftLabel:self.mealPlanLabel
+                     AndRightLabel:self.mealPlanBalanceLabel];
+    
+    [self drawLineBetweenLeftLabel:self.optionLabel
+                     AndRightLabel:self.optionBalanceLabel];
+    
 }
 
 - (void)positionTitleRowLabel:(UILabel *)label
@@ -91,7 +137,7 @@
     [self.view addSubview:label];
 }
 
-- (void)positionBalanceRowLabel:(UILabel *)label AfterLabel:(UILabel *)previousLabel
+- (void)positionBalanceRowNameLabel:(UILabel *)label AfterLabel:(UILabel *)previousLabel
 {
     label.x = PADDING;
     label.y = previousLabel.bottom + 20.0;
@@ -99,25 +145,39 @@
     label.width = self.view.width - (PADDING * 2);
     
     [self.view addSubview:label];
-    
-    [self drawLineAfterLabel:label];
 }
 
-- (void)drawLineAfterLabel:(UILabel *)label
+- (void)positionBalanceRowValueLabel:(UILabel *)label NextToLabel:(UILabel *)nameLabel
 {
-    CGRect labelBoundingRect = [label.text boundingRectWithSize:self.view.size
-                                                        options:NSStringDrawingUsesLineFragmentOrigin
-                                                     attributes:@{ NSFontAttributeName:label.font }
-                                                        context:nil];
+    label.height = 25.0;
+    label.width = self.view.width - (PADDING * 2);
+    label.bottom = nameLabel.bottom;
+    label.right = self.view.width - PADDING;
+    
+    [self.view addSubview:label];
+}
+
+- (void)drawLineBetweenLeftLabel:(UILabel *)leftLabel AndRightLabel:(UILabel *)rightLabel
+{
+    CGRect leftLabelBoundingRect = [self boundingBoxOfLabel:leftLabel];
+    CGRect rightLabelBoundingRect = [self boundingBoxOfLabel:rightLabel];
     
     UIView *thinLine = [UIView new];
-    thinLine.x = PADDING + labelBoundingRect.size.width + PADDING;
-    thinLine.y = label.bottom - 6.0;
-    thinLine.width = self.view.bounds.size.width - (PADDING * 3) - labelBoundingRect.size.width;
+    thinLine.x = PADDING + leftLabelBoundingRect.size.width + PADDING;
+    thinLine.y = leftLabel.bottom - 6.0;
+    thinLine.width = self.view.bounds.size.width - leftLabelBoundingRect.size.width - rightLabelBoundingRect.size.width - (PADDING * 4);
     thinLine.height = 0.4;
     thinLine.backgroundColor = [UIColor lightGrayColor];
     
     [self.view addSubview:thinLine];
+}
+
+- (CGRect)boundingBoxOfLabel:(UILabel *)label
+{
+    return [label.text boundingRectWithSize:self.view.size
+                                    options:NSStringDrawingUsesLineFragmentOrigin
+                                 attributes:@{ NSFontAttributeName:label.font }
+                                    context:nil];
 }
 
 #pragma mark - Class Utility Methods
@@ -132,11 +192,21 @@
     return label;
 }
 
-+ (UILabel *)balanceRowWithText:(NSString *)text
++ (UILabel *)balanceRowNameWithText:(NSString *)text
 {
     UILabel *label = [UILabel new];
     label.text = text;
     label.textAlignment = NSTextAlignmentLeft;
+    label.font = [UIFont fontWithName:@"HelveticaNeue-Thin" size:15.0];
+    
+    return label;
+}
+
++ (UILabel *)balanceRowValueWithText:(NSString *)text
+{
+    UILabel *label = [UILabel new];
+    label.text = text;
+    label.textAlignment = NSTextAlignmentRight;
     label.font = [UIFont fontWithName:@"HelveticaNeue-Thin" size:15.0];
     
     return label;
