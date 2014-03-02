@@ -16,27 +16,27 @@
 
 - (float)tigerBucksBalance
 {
-    return 0.0;
+    return 120.12;
 }
 
 - (float)foodDebitBalance
 {
-    return 0.0;
+    return 320.15;
 }
 
 - (NSString *)mealPlan
 {
-    return nil;
+    return @"All Debit";
 }
 
 - (float)mealPlanBalance
 {
-    return 0.0;
+    return 23.64;
 }
 
 - (float)optionBalanceLabel
 {
-    return 0.0;
+    return 234.32;
 }
 
 @end

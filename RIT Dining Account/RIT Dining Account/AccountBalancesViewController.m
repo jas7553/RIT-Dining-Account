@@ -7,10 +7,13 @@
 //
 
 #import "AccountBalancesViewController.h"
+#import "AccountBalancesModel.h"
 
 #define PADDING 6.0
 
 @interface AccountBalancesViewController ()
+
+@property (strong, nonatomic) AccountBalancesModel *accountBalancesModel;
 
 @property (strong, nonatomic) UILabel *titleLabel;
 
@@ -35,6 +38,8 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     
     if (self) {
+        self.accountBalancesModel = [AccountBalancesModel new];
+        
         // Initialize title label
         self.titleLabel = [AccountBalancesViewController titleRowWithText:@"Current Dining Account Balances"];
         
@@ -45,11 +50,11 @@
         self.mealPlanLabel = [AccountBalancesViewController balanceRowNameWithText:@"Meal Plan Balance"];
         self.optionLabel = [AccountBalancesViewController balanceRowNameWithText:@"Option Balance"];
         
-        self.tigerBucksBalanceLabel = [AccountBalancesViewController balanceRowValueWithText:@"1.00000000"];
-        self.foodDebitBalanceLabel = [AccountBalancesViewController balanceRowValueWithText:@"1.00000000"];
-        self.mealPlanValueLabel = [AccountBalancesViewController balanceRowValueWithText:@"1.00000000"];
-        self.mealPlanBalanceLabel = [AccountBalancesViewController balanceRowValueWithText:@"1.00000000"];
-        self.optionBalanceLabel = [AccountBalancesViewController balanceRowValueWithText:@"1.00000000"];
+        self.tigerBucksBalanceLabel = [AccountBalancesViewController balanceRowValueWithText:[NSString stringWithFormat:@"$ %.02f", [self.accountBalancesModel tigerBucksBalance]]];
+        self.foodDebitBalanceLabel = [AccountBalancesViewController balanceRowValueWithText:[NSString stringWithFormat:@"$ %.02f", [self.accountBalancesModel foodDebitBalance]]];
+        self.mealPlanValueLabel = [AccountBalancesViewController balanceRowValueWithText:[NSString stringWithFormat:@"%@", [self.accountBalancesModel mealPlan]]];
+        self.mealPlanBalanceLabel = [AccountBalancesViewController balanceRowValueWithText:[NSString stringWithFormat:@"$ %.02f", [self.accountBalancesModel mealPlanBalance]]];
+        self.optionBalanceLabel = [AccountBalancesViewController balanceRowValueWithText:[NSString stringWithFormat:@"$ %.02f", [self.accountBalancesModel optionBalanceLabel]]];
     }
     
     return self;
