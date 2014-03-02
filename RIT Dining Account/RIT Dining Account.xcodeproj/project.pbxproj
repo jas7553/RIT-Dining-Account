@@ -21,6 +21,7 @@
 		9605AB6618C3900E00E1D86E /* RIT_Dining_AccountTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9605AB6518C3900E00E1D86E /* RIT_Dining_AccountTests.m */; };
 		9605AB7118C3907700E1D86E /* AccountBalancesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9605AB7018C3907700E1D86E /* AccountBalancesViewController.m */; };
 		9605AB7418C3963300E1D86E /* UIView+Positioning.m in Sources */ = {isa = PBXBuildFile; fileRef = 9605AB7318C3963300E1D86E /* UIView+Positioning.m */; };
+		9637465118C3BE4000C4A49F /* AccountBalancesModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9637465018C3BE4000C4A49F /* AccountBalancesModel.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +55,8 @@
 		9605AB7018C3907700E1D86E /* AccountBalancesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccountBalancesViewController.m; sourceTree = "<group>"; };
 		9605AB7218C3963300E1D86E /* UIView+Positioning.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Positioning.h"; sourceTree = "<group>"; };
 		9605AB7318C3963300E1D86E /* UIView+Positioning.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Positioning.m"; sourceTree = "<group>"; };
+		9637464F18C3BE4000C4A49F /* AccountBalancesModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccountBalancesModel.h; sourceTree = "<group>"; };
+		9637465018C3BE4000C4A49F /* AccountBalancesModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccountBalancesModel.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,6 +116,8 @@
 		9605AB4618C3900E00E1D86E /* RIT Dining Account */ = {
 			isa = PBXGroup;
 			children = (
+				9637464F18C3BE4000C4A49F /* AccountBalancesModel.h */,
+				9637465018C3BE4000C4A49F /* AccountBalancesModel.m */,
 				9605AB6F18C3907700E1D86E /* AccountBalancesViewController.h */,
 				9605AB7018C3907700E1D86E /* AccountBalancesViewController.m */,
 				9605AB4F18C3900E00E1D86E /* AppDelegate.h */,
@@ -253,6 +258,7 @@
 				9605AB4D18C3900E00E1D86E /* main.m in Sources */,
 				9605AB7418C3963300E1D86E /* UIView+Positioning.m in Sources */,
 				9605AB7118C3907700E1D86E /* AccountBalancesViewController.m in Sources */,
+				9637465118C3BE4000C4A49F /* AccountBalancesModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -453,6 +459,7 @@
 				9605AB6B18C3900E00E1D86E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		9605AB6C18C3900E00E1D86E /* Build configuration list for PBXNativeTarget "RIT Dining AccountTests" */ = {
 			isa = XCConfigurationList;
@@ -461,6 +468,7 @@
 				9605AB6E18C3900E00E1D86E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
