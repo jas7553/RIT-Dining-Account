@@ -20,6 +20,7 @@
 		9605AB6418C3900E00E1D86E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9605AB6218C3900E00E1D86E /* InfoPlist.strings */; };
 		9605AB6618C3900E00E1D86E /* RIT_Dining_AccountTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9605AB6518C3900E00E1D86E /* RIT_Dining_AccountTests.m */; };
 		9605AB7118C3907700E1D86E /* AccountBalancesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9605AB7018C3907700E1D86E /* AccountBalancesViewController.m */; };
+		9605AB7418C3963300E1D86E /* UIView+Positioning.m in Sources */ = {isa = PBXBuildFile; fileRef = 9605AB7318C3963300E1D86E /* UIView+Positioning.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,8 @@
 		9605AB6518C3900E00E1D86E /* RIT_Dining_AccountTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RIT_Dining_AccountTests.m; sourceTree = "<group>"; };
 		9605AB6F18C3907700E1D86E /* AccountBalancesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccountBalancesViewController.h; sourceTree = "<group>"; };
 		9605AB7018C3907700E1D86E /* AccountBalancesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccountBalancesViewController.m; sourceTree = "<group>"; };
+		9605AB7218C3963300E1D86E /* UIView+Positioning.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Positioning.h"; sourceTree = "<group>"; };
+		9605AB7318C3963300E1D86E /* UIView+Positioning.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Positioning.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,6 +130,8 @@
 				9605AB4918C3900E00E1D86E /* InfoPlist.strings */,
 				9605AB4C18C3900E00E1D86E /* main.m */,
 				9605AB4E18C3900E00E1D86E /* RIT Dining Account-Prefix.pch */,
+				9605AB7218C3963300E1D86E /* UIView+Positioning.h */,
+				9605AB7318C3963300E1D86E /* UIView+Positioning.m */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -246,6 +251,7 @@
 			files = (
 				9605AB5118C3900E00E1D86E /* AppDelegate.m in Sources */,
 				9605AB4D18C3900E00E1D86E /* main.m in Sources */,
+				9605AB7418C3963300E1D86E /* UIView+Positioning.m in Sources */,
 				9605AB7118C3907700E1D86E /* AccountBalancesViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
