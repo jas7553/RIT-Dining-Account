@@ -75,11 +75,11 @@
 }
 
 - (CGFloat)width{
-    return self.frame.size.width;
+    return self.bounds.size.width;
 }
 
 - (CGFloat)height{
-    return self.frame.size.height;
+    return self.bounds.size.height;
 }
 
 - (CGPoint)origin{
