@@ -13,11 +13,12 @@
 @interface AccountBalancesViewController ()
 
 @property (strong, nonatomic) UILabel *titleLabel;
-@property (strong, nonatomic) UILabel *tigerBucksBalanceLabel;
-@property (strong, nonatomic) UILabel *foodDebitBalanceLabel;
+
+@property (strong, nonatomic) UILabel *tigerBucksLabel;
+@property (strong, nonatomic) UILabel *foodDebitLabel;
+@property (strong, nonatomic) UILabel *mealPlanNameLabel;
 @property (strong, nonatomic) UILabel *mealPlanLabel;
-@property (strong, nonatomic) UILabel *mealPlanBalanceLabel;
-@property (strong, nonatomic) UILabel *optionBalanceLabel;
+@property (strong, nonatomic) UILabel *optionLabel;
 
 @end
 
@@ -32,11 +33,11 @@
         self.titleLabel = [AccountBalancesViewController titleRowWithText:@"Current Dining Account Balances"];
         
         // Initialize balance row labels
-        self.tigerBucksBalanceLabel = [AccountBalancesViewController balanceRowWithText:@"Tiger Bucks Balance"];
-        self.foodDebitBalanceLabel = [AccountBalancesViewController balanceRowWithText:@"Food Debit Balance"];
-        self.mealPlanLabel = [AccountBalancesViewController balanceRowWithText:@"Meal Plan"];
-        self.mealPlanBalanceLabel = [AccountBalancesViewController balanceRowWithText:@"Meal Plan Balance"];
-        self.optionBalanceLabel = [AccountBalancesViewController balanceRowWithText:@"Option Balance"];
+        self.tigerBucksLabel = [AccountBalancesViewController balanceRowWithText:@"Tiger Bucks Balance"];
+        self.foodDebitLabel = [AccountBalancesViewController balanceRowWithText:@"Food Debit Balance"];
+        self.mealPlanNameLabel = [AccountBalancesViewController balanceRowWithText:@"Meal Plan"];
+        self.mealPlanLabel = [AccountBalancesViewController balanceRowWithText:@"Meal Plan Balance"];
+        self.optionLabel = [AccountBalancesViewController balanceRowWithText:@"Option Balance"];
     }
     
     return self;
@@ -64,20 +65,20 @@
 {
     [self positionTitleRowLabel:self.titleLabel];
     
-    [self positionBalanceRowLabel:self.tigerBucksBalanceLabel
+    [self positionBalanceRowLabel:self.tigerBucksLabel
                        AfterLabel:self.titleLabel];
     
-    [self positionBalanceRowLabel:self.foodDebitBalanceLabel
-                       AfterLabel:self.tigerBucksBalanceLabel];
+    [self positionBalanceRowLabel:self.foodDebitLabel
+                       AfterLabel:self.tigerBucksLabel];
+    
+    [self positionBalanceRowLabel:self.mealPlanNameLabel
+                       AfterLabel:self.foodDebitLabel];
     
     [self positionBalanceRowLabel:self.mealPlanLabel
-                       AfterLabel:self.foodDebitBalanceLabel];
+                       AfterLabel:self.mealPlanNameLabel];
     
-    [self positionBalanceRowLabel:self.mealPlanBalanceLabel
+    [self positionBalanceRowLabel:self.optionLabel
                        AfterLabel:self.mealPlanLabel];
-    
-    [self positionBalanceRowLabel:self.optionBalanceLabel
-                       AfterLabel:self.mealPlanBalanceLabel];
 }
 
 - (void)positionTitleRowLabel:(UILabel *)label
